@@ -1,0 +1,13 @@
+.container{
+    background-color: white;
+    border-radius: 1em;
+    border: 2px solid grey;
+    padding: 1em;
+}
+
+#interface{
+    padding-top: 5em;
+    background-image: url(image/bgimage.png);
+    background-position: bottom;
+    background-size: cover;
+}
