@@ -1,7 +1,7 @@
 <?php
     
-    include_once 'includes/dbh-inc.php'; 
-    include 'includes/validationError.php';
+    include_once '../includes/dbh-inc.php'; 
+    include '../includes/validationError.php';
     header('Access-Control-Allow-Origin: http://localhost/aker-login-js/');
 
     unset($_COOKIE['CurrentUser']);

@@ -1,11 +1,11 @@
 <?php
     header('Access-Control-Allow-Origin: http://localhost/aker-login-js/');
 
-    include 'includes/validationError.php';
-    include 'includes/dbh-inc.php';
+    include '../includes/validationError.php';
+    include '../includes/dbh-inc.php';
     
     //Esta variável vai acessar os cookies e armazenar o nome de usuário
-    $currentUser = $_COOKIE['CurrentUser'];
+    $currentUser = getCookie("CurrentUser");
     //Esta sessão pega a tabela referente ao usuário, dá fetch em sua data de criação e armazena na variável para o JSON
     $getCreationDate = mysqli_query($conn, "SELECT datacriacao FROM usuario WHERE nome='".$currentUser."';");
     $fetchCreationDate = mysqli_fetch_assoc($getCreationDate);

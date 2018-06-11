@@ -7,7 +7,7 @@
 
 #interface{
     padding-top: 5em;
-    background-image: url(image/bgimage.png);
+    background-image: url(bgimage.png);
     background-position: bottom;
     background-size: cover;
 }

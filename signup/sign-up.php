@@ -2,8 +2,8 @@
 
 header('Access-Control-Allow-Origin: http://localhost/aker-login-js/');
 
-include 'includes/validationError.php';
-include 'includes/dbh-inc.php';
+include '../includes/validationError.php';
+include '../includes/dbh-inc.php';
 
     //Vai receber uma entrada de arquivo
     $postdata = file_get_contents("php://input");

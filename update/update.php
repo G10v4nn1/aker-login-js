@@ -1,8 +1,8 @@
 <?php
     header('Access-Control-Allow-Origin: http://localhost/aker-login-js/');
 
-    include 'includes/validationError.php';
-    include 'includes/dbh-inc.php';
+    include '../includes/validationError.php';
+    include '../includes/dbh-inc.php';
 
     //Vai receber uma entrada de arquivo
     $postdata = file_get_contents("php://input");
@@ -11,7 +11,7 @@
     $inputName = $request->name;
     $hadUpdates = false;
     //Este bloco recebe o ID
-    $queryId = mysqli_query($conn, "SELECT id FROM usuario WHERE nome='".$_COOKIE["CurrentUser"]."';");
+    $queryId = mysqli_query($conn, "SELECT id FROM usuario WHERE nome='".getCookie("CurrentUser")."';");
     $fetchId = mysqli_fetch_assoc($queryId);
     $id = $fetchId['id'];
     //esta condicional impede que nomes vazios ou com uma letra sejam cadastrados
@@ -35,7 +35,7 @@
             exit;
         } else {
             if($inputPassword == $inputConfirmPassword){
-                mysqli_query($conn, "UPDATE usuario SET senha = '".$inputPassword."' WHERE nome = '".$_COOKIE["CurrentUser"]."';");
+                mysqli_query($conn, "UPDATE usuario SET senha = '".$inputPassword."' WHERE nome = '".getCookie("CurrentUser")."';");
                 $hadUpdates = true;
             } else {
                 validationError("Passwords does not match");

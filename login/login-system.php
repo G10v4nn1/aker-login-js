@@ -1,7 +1,7 @@
 <?php
 
-    include_once 'includes/dbh-inc.php'; 
-    include 'includes/validationError.php';
+    include_once '../includes/dbh-inc.php'; 
+    include '../includes/validationError.php';
     header('Access-Control-Allow-Origin: http://localhost/aker-login-js/');
     //Vai receber uma entrada de arquivo
     $postdata = file_get_contents("php://input");
@@ -28,9 +28,9 @@
         //Se a senha for correta
            if($inputPassword == $DBPasswordResult['senha']){
                //Emite um JSON com o resultado TRUE, atestando que a senha é correta
-               $loginResult = array(true);
+               $loginResult = array('correctPassword' => true);
                $loginResultJSON = json_encode($loginResult);
-               setcookie("CurrentUser", $inputUsername);
+               createCookie("CurrentUser", $inputUsername);
                echo $loginResultJSON;
             //Caso contrario chama o metodo Validation Error e informa que a senha é incorreta
            } else {
